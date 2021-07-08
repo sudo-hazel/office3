@@ -1,6 +1,8 @@
 window.WS = {};
 window.WS.makews = function makews() {
-  let ws = new WebSocket("wss://lljem.sse.codesandbox.io");
+  let ws = new WebSocket(
+    "wss://" + window.location.hostname + window.location.pathname
+  );
 
   ws.onopen = () => {
     if (!window._ps) {
