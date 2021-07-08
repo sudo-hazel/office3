@@ -9,7 +9,7 @@
  * @returns if authenticated
  */
 function auth(ws, msg) {
-  if (!ws.data?.auth && msg?.type === "Auth") {
+  if (!(ws.data && ws.data.auth) && msg && msg.type === "Auth") {
     if (msg.pass === process.env.PASS1) {
       ws.data.auth = true;
       ws.data.role = 0;
