@@ -1,4 +1,3 @@
-console.log(b);
 const express = require("express");
 //const app = require("./appwrapper");
 const port = 8999;
