@@ -1,0 +1,81 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+table#main {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+table {
+  white-space: nowrap;
+  width: 100%;
+  background-color: #005a8f1f;
+}
+table#main th {
+  border-left: 3px solid black;
+  border-bottom: 4px solid black;
+}
+table#main th:first-of-type {
+  border-left: none;
+}
+td input.time {
+  font-family: monospace;
+  font-size: 1.1em;
+  padding: 0;
+  width: calc(50% - 12px);
+  text-align: center;
+}
+td input.apt-time {
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.1em;
+  padding: 0;
+}
+td:not(.remove) input:not(.time) {
+  box-sizing: border-box;
+  width: calc(100% - 6px);
+  margin-left: 3px;
+  margin-right: 3px;
+}
+th.time {
+  width: 15%;
+}
+td.time {
+  text-align: center;
+  vertical-align: middle;
+}
+::-webkit-calendar-picker-indicator,
+::-webkit-search-cancel-button,
+::-webkit-clear-button,
+::-webkit-inner-spin-button,
+::-webkit-search-decoration {
+  display: none !important;
+}
+td {
+  border-right: 1px solid rgba(0, 0, 0, 0.336);
+  vertical-align: middle;
+  border-collapse: collapse;
+  border-bottom: 1px solid black;
+}
+tr {
+  height: 2rem;
+}
+tr:last-child {
+  border-bottom: none;
+}
+th.EX {
+  width: 10%;
+}
+th.apt-time {
+  width: 7%;
+}
+input:disabled {
+  background-color: #0000001f;
+}
+.time-sep {
+  margin: -1px;
+  width: 6px;
+}
+th.room {
+  width: 5rem;
+}
