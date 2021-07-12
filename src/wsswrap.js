@@ -8,7 +8,7 @@ module.exports = (wss) => {
     this.isAlive = true;
   }
   wss.on("connection", (ws) => {
-    ws.send("connect");
+    ws.send('["connect"]');
     ws.isAlive = true;
     ws.on("pong", heartbeat);
     ws.data = {};

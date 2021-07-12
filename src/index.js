@@ -26,7 +26,7 @@ websocketServer.on("connection", (webSocketClient) => {
 });*/
 
 //start the web server
-server.listen(serverPort, () => {
+server.listen(process.env.PORT || serverPort, () => {
   console.log(`Websocket server started on port ` + serverPort);
   app.use(express.static("public"));
 
