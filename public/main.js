@@ -1,5 +1,6 @@
 /* global addElm, getTempClone, newPt, updateTimeDatalist, timeDatalist, wsWaitInit*/
-function setRow() {
+// Used to add very first row (important)
+function setRow() { 
   let elm = getTempClone();
   elm = addElm(elm, "ptt");
   elm.id = "set";

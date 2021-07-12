@@ -1,21 +1,21 @@
 const http = require("http");
 const WebSocket = require("ws");
+const {heart, ping} = require("./heartbeat.js")
 const wsh = require("./wsTypes"); //wsh(andle)
-module.exports = (wss) => {
+module.exports = wss => {
+  //defined
   function noop() {}
 
   function heartbeat() {
     this.isAlive = true;
   }
-  wss.on("connection", (ws) => {
-    ws.send('["connect"]');
-    ws.isAlive = true;
-    ws.on("pong", heartbeat);
-    ws.data = {};
-    ws.on("message", (msgRaw) => {
+  wss.squeue = new Map();
+  wss.on("connection", ws => {
+    heart(ws);
+    ws.on("message", msgRaw => {
       let msg = JSON.parse(msgRaw);
       //If type===Auth
-      wsh.auth(ws, msg);
+      wsh.auth(ws, msg, wss);
       //If not auth, do not reply
       if (!wsh.auth(ws)) {
         return false;
@@ -23,11 +23,5 @@ module.exports = (wss) => {
       wsh.sync(msg, wss, ws);
     });
   });
-  setInterval(function ping() {
-    wss.clients.forEach(function each(ws) {
-      if (ws.isAlive === false) return ws.terminate();
-      ws.isAlive = false;
-      ws.ping(noop);
-    });
-  }, 20000);
+  ping(wss)
 };
