@@ -19,6 +19,6 @@ function newPt(changeEvent) {
   let id = "pt-" + btoa(name + Date.now());
   let ret = pNameToElm(name, id);
   changeEvent.target.value = "";
-  window.WS.send(["new-pt", { id: id, name: name }]);
+  window.WS.send({ type: "new-pt", id, name });
   return ret;
 }

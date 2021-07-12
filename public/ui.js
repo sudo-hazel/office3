@@ -1,10 +1,12 @@
 let wsWaitInit = () => {
   function packager(ptId) {
     console.log(this);
-    window.WS.send([
-      "type-sync",
-      { id: ptId, value: this.value, classes: String(this.classList) }
-    ]);
+    window.WS.send({
+      type: "type-sync",
+      id: ptId,
+      value: this.value,
+      classes: String(this.classList)
+    });
   }
   function noTab(event) {
     if (event.key === "Tab") {
