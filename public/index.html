@@ -1,85 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"
+    />
+    <title>Office</title>
+    <link href="table.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
-  <title>Office</title>
-  <link href="main.css" rel="stylesheet">
- 
-</head>
-
-<body>
-  <template id="patient-template">
-    <tr class="patient" id="ptt">
-      <td class="ptName">
-        <input class="pt-name" placeholder="Patient Name">
-      </td>
-      <td class="ptType">
-        <input class="pt-type" placeholder="Type">
-      </td>
-      <td class="apt-timet">
-        <input class="apt-time" placeholder="Apt. Time">
-      </td>
-      <td class="time patient-intake">
-        <div>
-          <input class="time intake-in" list="time-datalist" placeholder="TBA">
-          <span class="time-sep">-</span>
-          <input class="time intake-out" list="time-datalist" placeholder="TBA">
-        </div>
-      </td>
-      <td class="time consult">
-        <div>
-          <input class="time consult-in" list="time-datalist" placeholder="TBA">
-          <span class="time-sep">-</span>
-          <input class="time consult-out" list="time-datalist" placeholder="TBA">
-        </div>
-      </td>
-      <td class="room">
-        <input class="room pt-room" list="room-datalist" placeholder="Room">
-      </td>
-      <td class="dr">
-        <input class="dr pt-dr" list="dr-datalist" placeholder="Dr.">
-      </td>
-      <td class="time dr-time">
-        <div>
-          <input class="time dr-in" list="time-datalist" placeholder="TBA">
-          <span class="time-sep">-</span>
-          <input class="time dr-out" list="time-datalist" placeholder="TBA">
-        </div>
-      </td>
-      <td class="remove">
-        <input type="checkbox" class="check">
-      </td>
-    </tr>
-  </template>
-  
-  <table id="main">
-    <thead>
-      <th class="pt">Pt.</th>
-      <th class="type">Type</th>
-      <th class="apt-timet">Apt.</th>
-      <th class="time">Intake</th>
-      <th class="time">Consult</th>
-      <th class="room">Room</th>
-      <th class="dr"> Dr</th>
-      <th class="time">Dr. Time</th>
-      <th class="EX">EX</th>
-    </thead>
-    <tbody id="mainbody">
-    </tbody>
+  <body>
+    <template id="patient-template">
+      <tr class="patient" id="ptt">
+        <td class="ptName">
+          <input class="pt-name" placeholder="Patient Name" />
+        </td>
+        <td class="ptType">
+          <input class="pt-type" placeholder="Type" />
+        </td>
+        <td class="apt-timet">
+          <input class="apt-time" placeholder="Apt. Time" />
+        </td>
+        <td class="time patient-intake">
+          <div>
+            <input
+              class="time intake-in"
+              list="time-datalist"
+              placeholder="TBA"
+            />
+            <span class="time-sep">-</span>
+            <input
+              class="time intake-out"
+              list="time-datalist"
+              placeholder="TBA"
+            />
+          </div>
+        </td>
+        <td class="time consult">
+          <div>
+            <input
+              class="time consult-in"
+              list="time-datalist"
+              placeholder="TBA"
+            />
+            <span class="time-sep">-</span>
+            <input
+              class="time consult-out"
+              list="time-datalist"
+              placeholder="TBA"
+            />
+          </div>
+        </td>
+        <td class="room">
+          <input class="room pt-room" list="room-datalist" placeholder="Room" />
+        </td>
+        <td class="dr">
+          <input class="dr pt-dr" list="dr-datalist" placeholder="Dr." />
+        </td>
+        <td class="time dr-time">
+          <div>
+            <input class="time dr-in" list="time-datalist" placeholder="TBA" />
+            <span class="time-sep">-</span>
+            <input class="time dr-out" list="time-datalist" placeholder="TBA" />
+          </div>
+        </td>
+        <td class="remove">
+          <input type="checkbox" class="check" />
+        </td>
+      </tr>
+    </template>
+    <div class="table1">
+      <table id="main">
+        <thead>
+          <th class="pt">Pt.</th>
+          <th class="type">Type</th>
+          <th class="apt-timet">Apt.</th>
+          <th class="time">Intake</th>
+          <th class="time">Consult</th>
+          <th class="room">Room</th>
+          <th class="dr">Dr</th>
+          <th class="time">Dr. Time</th>
+          <th class="EX">EX</th>
+        </thead>
+        <tbody id="mainbody"></tbody>
+      </table>
+    </div>
     <datalist id="time-datalist">
-      <option id="timeListTime" value="">
+      <option id="timeListTime" value=""></option>
     </datalist>
     <datalist id="room-datalist">
-      <option value="Exam 1">
-      <option value="Exam 2">
-      <option value="ECST">
-      <option value="Consult 1">
-      <option value="Consult 2">
+      <option value="Exam 1"></option>
+      <option value="Exam 2"></option>
+      <option value="ECST"></option>
+      <option value="Consult 1"></option>
+      <option value="Consult 2"></option>
     </datalist>
     <datalist id="dr-datalist">
-      <option value="Willis">
-      <option value="Wallace">
+      <option value="Willis"></option>
+      <option value="Wallace"></option>
     </datalist>
     <script type="text/javascript" src="update.js"></script>
     <script type="text/javascript" src="sync.js"></script>
@@ -87,7 +105,5 @@
     <script type="text/javascript" src="wsout.js"></script>
     <script type="text/javascript" src="ui.js"></script>
     <script type="text/javascript" src="main.js"></script>
-    
-</body>
-
+  </body>
 </html>

@@ -1,10 +1,19 @@
+body {
+  margin: 2px;
+}
 h1,
 h2 {
   font-family: Lato;
 }
+.table1{
+  position: relative;
+  height: calc(100vh - 4px);
+  overflow-y: auto;
+}
 table#main {
   border-collapse: collapse;
   border: 1px solid black;
+  position:absolute;
 }
 table {
   white-space: nowrap;
