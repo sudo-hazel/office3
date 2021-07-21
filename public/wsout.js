@@ -1,4 +1,4 @@
-/* global pNameToElm, cellsToJSON, JSONToCells*/
+/* global pNameToElm, cellsToJSON, JSONToCells, printMake*/
 window.WS = {};
 window.WS.makews = function makews() {
   let ws = new WebSocket(
@@ -11,6 +11,10 @@ window.WS.makews = function makews() {
       //Cries in development
       if (window.location === window.parent.location) {
         window._ps = prompt("Password");
+      }
+      if(window._ps=="print"||window._ps=="Print"||window._ps=="PRINT"){
+        setTimeout(()=>{navigator.clipboard.readText().then((e)=>print(JSON.parse(e)))},500)
+        return;
       }
     }
     window.WS.send({ type: "auth", pass: String(window._ps) });
